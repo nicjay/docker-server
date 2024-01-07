@@ -1,0 +1,15 @@
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      - PUID=${PGID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - DEFAULT_WORKSPACE=/docker
+    volumes:
+      - ./config:/config
+      - ../:/docker
+    ports:
+      - 8443:8443
+    restart: unless-stopped

@@ -1,0 +1,14 @@
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ./config:/config
+      - ${PATH_MEDIA}:/media
+    ports:
+      - 8686:8686
+    restart: unless-stopped
