@@ -8,6 +8,9 @@ services:
       - SIGNUPS_ALLOWED=false
       - INVITATIONS_ALLOWED=false
       - SHOW_PASSWORD_HINT=false
+      - PUSH_ENABLED=true
+      - PUSH_INSTALLATION_ID=${PUSH_INSTALLATION_ID}
+      - PUSH_INSTALLATION_KEY=${PUSH_INSTALLATION_KEY}
     volumes:
       - ./config:/data
     networks:
