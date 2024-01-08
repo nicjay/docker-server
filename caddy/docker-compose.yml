@@ -1,15 +1,17 @@
 services:
   caddy:
-    image: caddy:latest
+    build: .
     container_name: caddy
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./data:/data
       - ./config:/config
+    environment:
+      - ROOT_DOMAIN
+      - CLOUDFLARE_API_TOKEN
     ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
+      - 443:443
+      - 443:443/udp
     networks:
       - proxy
     restart: unless-stopped
