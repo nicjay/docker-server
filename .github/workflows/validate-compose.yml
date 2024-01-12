@@ -10,5 +10,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Install Docker Compose
         uses: ndeloof/install-compose-action@v0.0.1
+      - name: Create mock environment file
+        run: |
+          echo TZ=America/Los_Angeles >> .env
+          echo PUID=1000 >> .env
+          echo PGID=1000 >> .env
+          echo PATH_MEDIA=/ >> .env
       - name: Validate Docker Compose
         run: docker compose config
