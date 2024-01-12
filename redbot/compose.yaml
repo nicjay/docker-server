@@ -11,3 +11,4 @@ services:
     volumes:
       - ./config:/data
     restart: unless-stopped
+    

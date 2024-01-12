@@ -1,0 +1,20 @@
+networks:
+  proxy: {}
+
+include:
+  - 'caddy/compose.yaml'
+  - 'code-server/compose.yaml'
+  - 'diun/compose.yaml'
+  - 'dozzle/compose.yaml'
+  - 'homepage/compose.yaml'
+  - 'lidarr/compose.yaml'
+  - 'plex/compose.yaml'
+  - 'prowlarr/compose.yaml'
+  - 'pterodactyl/compose.yaml'
+  - 'qbittorrent/compose.yaml'
+  - 'radarr/compose.yaml'
+  - 'redbot/compose.yaml'
+  - 'sonarr/compose.yaml'
+  - 'tautulli/compose.yaml'
+  - 'vaultwarden/compose.yaml'
+  

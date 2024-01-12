@@ -1,7 +1,7 @@
 services:
-  sonarr:
-    image: lscr.io/linuxserver/sonarr:latest
-    container_name: sonarr
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -10,5 +10,6 @@ services:
       - ./config:/config
       - ${PATH_MEDIA}:/media
     ports:
-      - 8989:8989
+      - 7878:7878
     restart: unless-stopped
+    
