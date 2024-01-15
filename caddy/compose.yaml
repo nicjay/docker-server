@@ -1,6 +1,6 @@
 services:
   caddy:
-    build: .
+    image: ghcr.io/nicjay/caddy-cloudflare-crowdsec:latest
     container_name: caddy
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro

@@ -8,6 +8,3 @@
 
 # ...even if they are in subdirectories
 !*/
-
-# Custom Caddy image
-!/caddy/Dockerfile
