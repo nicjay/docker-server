@@ -15,7 +15,7 @@ services:
       - ./config/logs:/app/storage/logs
     networks:
       - pterodactyl
-      - proxy
+      - reverse-proxy
     depends_on:
       - pterodactyl-database
       - pterodactyl-cache

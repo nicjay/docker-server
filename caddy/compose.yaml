@@ -2,17 +2,17 @@ services:
   caddy:
     image: ghcr.io/nicjay/caddy-cloudflare-crowdsec:latest
     container_name: caddy
+    environment:
+      - ROOT_DOMAIN=${ROOT_DOMAIN}
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./data:/data
       - ./config:/config
-    environment:
-      - ROOT_DOMAIN=${ROOT_DOMAIN}
-      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
     ports:
       - 443:443
       - 443:443/udp
     networks:
-      - proxy
+      - reverse-proxy
     restart: unless-stopped
     

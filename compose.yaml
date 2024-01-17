@@ -1,5 +1,6 @@
 networks:
-  proxy: {}
+  reverse-proxy: {}
+  socket-proxy: {}
 
 include:
   - 'caddy/compose.yaml'
@@ -14,6 +15,7 @@ include:
   - 'qbittorrent/compose.yaml'
   - 'radarr/compose.yaml'
   - 'redbot/compose.yaml'
+  - 'socket-proxy/compose.yaml'
   - 'sonarr/compose.yaml'
   - 'tautulli/compose.yaml'
   - 'vaultwarden/compose.yaml'

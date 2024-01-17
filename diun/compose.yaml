@@ -10,12 +10,14 @@ services:
       - DIUN_WATCH_SCHEDULE=0 */6 * * *
       - DIUN_WATCH_JITTER=30s
       - DIUN_PROVIDERS_DOCKER=true
+      - DIUN_PROVIDERS_DOCKER_ENDPOINT=tcp://socket-proxy:2375
       - DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT=true
       - DIUN_NOTIF_DISCORD_WEBHOOKURL=${WEBHOOKURL}
       - DIUN_NOTIF_DISCORD_MENTIONS=<@!${DISCORD_ID}>
       - DIUN_NOTIF_DISCORD_RENDERFIELDS=false
     volumes:
       - ./config:/data
-      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - socket-proxy
     restart: unless-stopped
     

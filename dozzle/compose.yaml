@@ -2,9 +2,12 @@ services:
   dozzle:
     image: amir20/dozzle:latest
     container_name: dozzle
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DOZZLE_REMOTE_HOST=tcp://socket-proxy:2375|${HOSTNAME}
+      - DOZZLE_NO_ANALYTICS=true
     ports:
       - 8888:8080
+    networks:
+      - socket-proxy
     restart: unless-stopped
     
