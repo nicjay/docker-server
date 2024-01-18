@@ -2,16 +2,38 @@ services:
   caddy:
     image: ghcr.io/nicjay/caddy-cloudflare-crowdsec:latest
     container_name: caddy
+    user: ${PUID}:${PGID}
     environment:
       - ROOT_DOMAIN=${ROOT_DOMAIN}
       - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+      - CROWDSEC_BOUNCER_KEY=${CROWDSEC_BOUNCER_KEY}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./data:/data
       - ./config:/config
+      - ./logs:/var/log
     ports:
       - 443:443
       - 443:443/udp
+    networks:
+      - reverse-proxy
+    restart: unless-stopped
+
+  crowdsec:
+    image: crowdsecurity/crowdsec:latest
+    container_name: crowdsec
+    security_opt:
+      - no-new-privileges=true
+    environment:
+      - GID=${PGID}
+      - TZ=${TZ}
+      - COLLECTIONS=crowdsecurity/caddy crowdsecurity/whitelist-good-actors
+      - CUSTOM_HOSTNAME=${ROOT_DOMAIN}
+    volumes:
+      - ./crowdsec:/etc/crowdsec
+      - ./crowdsec/acquis.d:/etc/crowdsec/acquis.d
+      - ./crowdsec/data:/var/lib/crowdsec/data
+      - ./logs:/var/log/caddy/:ro
     networks:
       - reverse-proxy
     restart: unless-stopped
