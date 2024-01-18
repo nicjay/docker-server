@@ -9,8 +9,8 @@ services:
       - CROWDSEC_BOUNCER_KEY=${CROWDSEC_BOUNCER_KEY}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - ./data:/data
-      - ./config:/config
+      - ./config/caddy_data:/data/caddy
+      - ./config/caddy_config:/config/caddy
       - ./logs:/var/log
     ports:
       - 443:443
@@ -30,9 +30,8 @@ services:
       - COLLECTIONS=crowdsecurity/caddy crowdsecurity/whitelist-good-actors
       - CUSTOM_HOSTNAME=${ROOT_DOMAIN}
     volumes:
-      - ./crowdsec:/etc/crowdsec
-      - ./crowdsec/acquis.d:/etc/crowdsec/acquis.d
-      - ./crowdsec/data:/var/lib/crowdsec/data
+      - ./config/crowdsec_config:/etc/crowdsec
+      - ./config/crowdsec_data:/var/lib/crowdsec/data
       - ./logs:/var/log/caddy/:ro
     networks:
       - reverse-proxy
