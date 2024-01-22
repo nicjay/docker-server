@@ -17,6 +17,7 @@ jobs:
           echo PGID=1000 >> .env
           echo PATH_MEDIA=/ >> .env
           touch homepage/homepage.env
+          touch mealie/mealie.env
           touch pterodactyl/panel.env
           touch pterodactyl/database.env
       - name: Validate Docker Compose

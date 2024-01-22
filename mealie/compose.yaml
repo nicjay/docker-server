@@ -1,0 +1,17 @@
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:latest
+    container_name: mealie
+    env_file:
+      - mealie.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ./config:/app/data/
+    ports:
+        - 9925:9000
+    networks:
+      - reverse-proxy
+    restart: unless-stopped
