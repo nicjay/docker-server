@@ -1,0 +1,14 @@
+services:
+  overseerr:
+    image: lscr.io/linuxserver/overseerr:latest
+    container_name: overseerr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ./config:/config
+      - ./logs:/config/logs
+    networks:
+      - reverse-proxy
+    restart: unless-stopped

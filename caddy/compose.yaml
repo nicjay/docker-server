@@ -27,12 +27,14 @@ services:
     environment:
       - GID=${PGID}
       - TZ=${TZ}
-      - COLLECTIONS=crowdsecurity/caddy crowdsecurity/whitelist-good-actors
+      - COLLECTIONS=crowdsecurity/caddy crowdsecurity/whitelist-good-actors Dominic-Wagner/vaultwarden LePresidente/overseerr
       - CUSTOM_HOSTNAME=${ROOT_DOMAIN}
     volumes:
       - ./config/crowdsec_config:/etc/crowdsec
       - ./config/crowdsec_data:/var/lib/crowdsec/data
-      - ./logs:/var/log/caddy/:ro
+      - ../caddy/logs:/var/log/caddy:ro
+      - ../vaultwarden/logs:/var/log/vaultwarden:ro
+      - ../overseerr/logs:/var/log/overseerr:ro
     networks:
       - reverse-proxy
     restart: unless-stopped

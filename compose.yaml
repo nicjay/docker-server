@@ -10,6 +10,7 @@ include:
   - homepage/compose.yaml
   - lidarr/compose.yaml
   - mealie/compose.yaml
+  - overseerr/compose.yaml
   - plex/compose.yaml
   - prowlarr/compose.yaml
   - pterodactyl/compose.yaml

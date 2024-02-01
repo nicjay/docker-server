@@ -11,8 +11,12 @@ services:
       - PUSH_ENABLED=true
       - PUSH_INSTALLATION_ID=${PUSH_INSTALLATION_ID}
       - PUSH_INSTALLATION_KEY=${PUSH_INSTALLATION_KEY}
+      - LOG_FILE=/logs/vaultwarden.log
+      - LOG_LEVEL=warn
+      - EXTENDED_LOGGING=true
     volumes:
       - ./config:/data
+      - ./logs:/logs
     networks:
       - reverse-proxy
     restart: unless-stopped
