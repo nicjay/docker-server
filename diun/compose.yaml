@@ -2,6 +2,7 @@ services:
   diun:
     image: ghcr.io/crazy-max/diun:latest
     container_name: diun
+    user: ${PUID}:${PGID}
     hostname: diun
     command: serve
     environment:

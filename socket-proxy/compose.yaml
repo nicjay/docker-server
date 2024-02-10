@@ -2,7 +2,6 @@ services:
   socket-proxy: # Access via port 2375
     image: ghcr.io/tecnativa/docker-socket-proxy:latest
     container_name: socket-proxy
-    privileged: true
     environment:
       - CONTAINERS=1
       - IMAGES=1

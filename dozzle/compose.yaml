@@ -2,6 +2,7 @@ services:
   dozzle:
     image: amir20/dozzle:latest
     container_name: dozzle
+    user: ${PUID}:${PGID}
     environment:
       - DOZZLE_REMOTE_HOST=tcp://socket-proxy:2375|${HOSTNAME}
       - DOZZLE_NO_ANALYTICS=true
