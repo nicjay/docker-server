@@ -18,6 +18,7 @@ jobs:
           echo PATH_MEDIA=/ >> .env
           touch homepage/homepage.env
           touch mealie/mealie.env
+          touch muse/muse.env
           touch pterodactyl/panel.env
           touch pterodactyl/database.env
       - name: Validate Docker Compose
