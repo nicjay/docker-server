@@ -10,15 +10,16 @@ include:
   - homepage/compose.yaml
   - lidarr/compose.yaml
   - mealie/compose.yaml
+  - muse/compose.yaml
   - overseerr/compose.yaml
   - plex/compose.yaml
   - prowlarr/compose.yaml
   - pterodactyl/compose.yaml
   - qbittorrent/compose.yaml
   - radarr/compose.yaml
-  - redbot/compose.yaml
   - socket-proxy/compose.yaml
   - sonarr/compose.yaml
   - tautulli/compose.yaml
   - vaultwarden/compose.yaml
+  - wikijs/compose.yaml
   

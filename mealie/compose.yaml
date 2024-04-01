@@ -11,7 +11,7 @@ services:
     volumes:
       - ./config:/app/data/
     ports:
-        - 9925:9000
+      - 9925:9000
     networks:
       - reverse-proxy
     restart: unless-stopped

@@ -1,0 +1,9 @@
+services:
+  muse:
+    image: codetheweb/muse:latest
+    container_name: muse
+    env_file:
+      - muse.env
+    volumes:
+      - ./config:/data
+    restart: unless-stopped
