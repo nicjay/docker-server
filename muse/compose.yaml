@@ -2,6 +2,7 @@ services:
   muse:
     image: codetheweb/muse:latest
     container_name: muse
+    user: ${PUID}:${PGID}
     env_file:
       - muse.env
     volumes:
