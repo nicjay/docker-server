@@ -1,7 +1,10 @@
 services:
-  socket-proxy: # Access via port 2375
-    image: ghcr.io/tecnativa/docker-socket-proxy:latest
+  socket-proxy:
+    image: lscr.io/linuxserver/socket-proxy:latest
     container_name: socket-proxy
+    read_only: true
+    tmpfs:
+      - /run
     environment:
       - CONTAINERS=1
       - IMAGES=1
@@ -10,3 +13,4 @@ services:
     networks:
       - socket-proxy
     restart: unless-stopped
+    
