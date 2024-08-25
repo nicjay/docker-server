@@ -1,6 +1,6 @@
 services:
   muse:
-    image: codetheweb/muse:latest
+    image: ghcr.io/museofficial/muse:latest
     container_name: muse
     user: ${PUID}:${PGID}
     env_file:
