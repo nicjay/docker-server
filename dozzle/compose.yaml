@@ -4,11 +4,21 @@ services:
     container_name: dozzle
     user: ${PUID}:${PGID}
     environment:
-      - DOZZLE_REMOTE_HOST=tcp://socket-proxy:2375|${HOSTNAME}
+      - DOZZLE_REMOTE_AGENT=dozzle-agent:7007
       - DOZZLE_NO_ANALYTICS=true
+      - DOZZLE_HOSTNAME=BeastBox
     ports:
       - 8888:8080
     networks:
-      - socket-proxy
+      - dozzle
     restart: unless-stopped
-    
+
+  dozzle-agent:
+    image: amir20/dozzle:latest
+    container_name: dozzle-agent
+    command: agent
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - dozzle
+    restart: unless-stopped

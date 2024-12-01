@@ -1,6 +1,7 @@
 networks:
   reverse-proxy: {}
   socket-proxy: {}
+  dozzle: {}
 
 include:
   - caddy/compose.yaml
