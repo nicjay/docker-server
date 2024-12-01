@@ -22,5 +22,6 @@ include:
   - sonarr/compose.yaml
   - tautulli/compose.yaml
   - vaultwarden/compose.yaml
+  - wallos/compose.yaml
   - wikijs/compose.yaml
   
